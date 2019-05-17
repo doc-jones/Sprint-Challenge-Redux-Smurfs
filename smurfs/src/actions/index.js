@@ -26,14 +26,6 @@ export const DELETE_FAILURE = "DELETE_FAILURE";
    D - deleteSmurf
 */
 
-const initialState = {
-  addSmurf: '',
-  getSmurfs: null,
-  updateSmurf: null,
-  deleteSmurf: null,
-  error: '',
-  isLoading: false
-};
 
 export const getSmurfs = () => {
   const promise = axios.get(`http://localhost:3333/smurfs`);

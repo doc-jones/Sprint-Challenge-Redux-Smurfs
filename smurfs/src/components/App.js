@@ -20,7 +20,7 @@ class App extends Component {
   }
 
   deleteSmurfs = id => {
-    this.props.delSmurfs(id);
+    this.props.deleteSmurfs(id);
   };
 
   render() {
@@ -30,7 +30,7 @@ class App extends Component {
           <h1>SMURFS! 2.0 W/ Redux</h1>
           <div>Welcome to your Redux version of Smurfs!</div>
         </div>
-        <ListSmurfs smurfs={this.props.smurfs} delSmurfs={this.deleteSmurfs} />
+        <ListSmurfs smurfs={this.props.smurfs} deleteSmurfs={this.deleteSmurfs} />
         <AddSmurfs />
       </div>
     );

@@ -10,7 +10,7 @@ function ListSmurfs(props) {
           <p>Height: {smurf.height}</p>
           <p className="images">
             <img
-              src="./images/basket.png"
+              src="../basket.png" height='30px' width='30px'
               alt="trash"
               onClick={() => props.deleteSmurfs(smurf.id)}
             />

@@ -1,22 +1,15 @@
-import React, { Component } from 'react';
-import './App.css';
+import React, { Component } from "react";
+import "./App.css";
+import { connect } from "react-redux";
+import { getSmurfs, deleteSmurfs } from "../actions";
+import ListSmurfs from "./ListSmurfs";
+import AddSmurfs from "./AddSmurfs";
 /*
  to wire this component up you're going to need a few things.
  I'll let you do this part on your own. 
  Just remember, `how do I `connect` my components to redux?`
  `How do I ensure that my component links the state to props?`
  */
-import Smurfs from './Smurfs';
-import { BrowserRouter as Router } from "react-router-dom";
-import { Route } from 'react-router-dom';
-import { NavLink } from 'react-router-dom';
-import { withRouter } from 'react-router-dom';
-import { connect } from 'react-redux';
-import { getSmurfs, addSmurf } from '../actions';
-import { AddSmurfs } from './AddSmurfs';
-import { ListSmurfs } from './ListSmurfs';
-
-
 class App extends Component {
   constructor() {
     super();
@@ -27,10 +20,8 @@ class App extends Component {
   }
 
   deleteSmurfs = id => {
-    this.props.deleteSmurfs(id);
+    this.props.delSmurfs(id);
   };
-
-
 
   render() {
     return (
@@ -39,7 +30,7 @@ class App extends Component {
           <h1>SMURFS! 2.0 W/ Redux</h1>
           <div>Welcome to your Redux version of Smurfs!</div>
         </div>
-        <ListSmurfs smurfs={this.props.smurfs} />
+        <ListSmurfs smurfs={this.props.smurfs} delSmurfs={this.deleteSmurfs} />
         <AddSmurfs />
       </div>
     );
@@ -58,3 +49,4 @@ export default connect(
   mapStateToProps,
   { getSmurfs, deleteSmurfs }
 )(App);
+

@@ -50,7 +50,7 @@ class AddSmurfs extends React.Component {
             <div className="input">
               <input
                 type="text"
-                className="details"
+                className="input-contact"
                 name="age"
                 value={this.state.newSmurf.age}
                 onChange={this.handleChange}
@@ -60,7 +60,7 @@ class AddSmurfs extends React.Component {
             <div className="input">
               <input
                 type="text"
-                className="details"
+                className="input-contact"
                 name="height"
                 value={this.state.newSmurf.height}
                 onChange={this.handleChange}

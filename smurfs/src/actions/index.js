@@ -54,3 +54,16 @@ export const addSmurf = (smurf) =>{
       })
   }
 }
+
+export const deleteSmurfs = id => dispatch => {
+  dispatch({ type: DELETING });
+  axios
+    .delete(`http://localhost:3333/smurfs/${id}`)
+    .then(res => {
+      dispatch({ type: DELETE_SUCCESS, payload: res.data });
+    })
+    .catch(err => {
+      console.log(err);
+      dispatch({ type: DELETE_FAILURE, payload: err });
+    });
+};

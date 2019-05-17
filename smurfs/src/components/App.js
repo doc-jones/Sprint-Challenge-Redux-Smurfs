@@ -26,6 +26,11 @@ class App extends Component {
     this.props.getSmurfs();
   }
 
+  deleteSmurfs = id => {
+    this.props.deleteSmurfs(id);
+  };
+
+
 
   render() {
     return (

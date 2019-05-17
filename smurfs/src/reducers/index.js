@@ -9,6 +9,8 @@ import {
   POST_SUCCESS,
   POST_FAILURE
 }
+  from './actions'
+
 
 /*
  Your initial/default state for this project could *Although does not have to* look a lot like this
@@ -29,3 +31,67 @@ import {
   There is no need for 'combineReducers' in this project.
   Components can then read your store as, `state` and not `state.fooReducer`.
 */
+
+import { combineReducers } from "redux";
+import smurfsReducer from "./smurfsReducer";
+
+
+const initialState = {
+  smurfs: [],
+  error: "",
+  isLoading: false
+};
+
+function smurfsReducer(state = initialState, action) {
+  switch (action.type) {
+    case   FETCHING: {
+      return {
+        ...state,
+        isLoading: true
+      };
+    }
+    case FETCH_SUCCESS: {
+      return {
+        ...state,
+        smurfs: action.payload,
+        isLoading: false
+      };
+    }
+    case FETCH_FAILURE: {
+      return {
+        ...state,
+        error: action.payload,
+        isLoading: false
+      };
+    }
+    case POSTING: {
+      return {
+        ...state,
+        isLoading: true
+      };
+    }
+    case POST_SUCCESS: {
+      return {
+        ...state,
+        smurfs: action.payload,
+        isLoading: false
+      };
+    }
+    case POST_FAILURE: {
+      return {
+        ...state,
+        error: action.payload,
+        isLoading: false
+      };
+    }
+    default: {
+      return state;
+    }
+  }
+}
+
+export default smurfsReducer;
+
+export default combineReducers({
+  smurfs: smurfsReducer
+});

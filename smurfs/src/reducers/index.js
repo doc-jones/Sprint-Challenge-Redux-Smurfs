@@ -32,8 +32,6 @@ import {
   Components can then read your store as, `state` and not `state.fooReducer`.
 */
 
-import { combineReducers } from "redux";
-import smurfsReducer from "./smurfsReducer";
 
 
 const initialState = {
@@ -92,6 +90,3 @@ function smurfsReducer(state = initialState, action) {
 
 export default smurfsReducer;
 
-export default combineReducers({
-  smurfs: smurfsReducer
-});

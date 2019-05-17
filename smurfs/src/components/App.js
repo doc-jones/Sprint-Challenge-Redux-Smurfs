@@ -13,6 +13,8 @@ import { NavLink } from 'react-router-dom';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { getSmurfs, addSmurf } from '../actions';
+import { AddSmurfs } from './AddSmurfs';
+import { ListSmurfs } from './ListSmurfs';
 
 
 class App extends Component {
@@ -39,4 +41,15 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapStateToProps = state => {
+  return {
+    smurfs: state.smurfs.smurfs,
+    isLoading: state.smurfs.isLoading,
+    error: state.smurfs.error
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  { getSmurfs, deleteSmurfs }
+)(App);

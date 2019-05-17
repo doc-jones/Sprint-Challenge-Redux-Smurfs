@@ -25,3 +25,31 @@ export const DELETE_FAILURE = "DELETE_FAILURE";
    U - updateSmurf
    D - deleteSmurf
 */
+
+export const getSmurfs = () => {
+  const promise = axios.get(`http://localhost:3333/smurfs`);
+  return dispatch=>{
+    dispatch({type: FETCHING});
+    promise
+      .then(response=>{
+
+        dispatch({type:FETCH_SUCCESS, payload: response.data})
+      })
+      .catch(err=>{console.log(err);
+      dispatch({type:POST_FAILURE})})
+  }
+}
+
+export const addSmurf = (smurf) =>{
+  const promise = axios.post(`http://localhost:3333/smurfs`, smurf);
+  return dispatch =>{
+    dispatch({type:POSTING})
+    promise
+      .then(response=>{
+        dispatch({type:POST_SUCCESS, payload: response.data})
+      })
+      .catch(err=>{console.log(err);
+        dispatch({type:POST_FAILURE})
+      })
+  }
+}

@@ -6,14 +6,34 @@ import './App.css';
  Just remember, `how do I `connect` my components to redux?`
  `How do I ensure that my component links the state to props?`
  */
+import Smurfs from './Smurfs';
+import { BrowserRouter as Router } from "react-router-dom";
+import { Route } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { getSmurfs, addSmurf } from '../actions';
+
+
 class App extends Component {
+  constructor() {
+    super();
+  }
+
+  componentDidMount() {
+    this.props.getSmurfs();
+  }
+
+
   render() {
     return (
       <div className="App">
-        <h1>SMURFS! 2.0 W/ Redux</h1>
-        <div>Welcome to your Redux version of Smurfs!</div>
-        <div>Start inside of your `src/index.js` file!</div>
-        <div>Have fun!</div>
+        <div className="smurf-header-container">
+          <h1>SMURFS! 2.0 W/ Redux</h1>
+          <div>Welcome to your Redux version of Smurfs!</div>
+        </div>
+        <ShowSmurfs smurfs={this.props.smurfs} />
+        <AddSmurfs />
       </div>
     );
   }

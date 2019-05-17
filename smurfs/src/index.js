@@ -9,7 +9,7 @@ import { Provider } from 'react-redux';
 import rootReducer './reducers';
 
 const store = createStore(
-  rootReducer, applyMiddleware(thunk)
+  rootReducer, applyMiddleware(thunk, logger)
 );
 
 ReactDOM.render(

@@ -23,3 +23,4 @@ It depends upon the complexity of the application. Smaller applications don't ne
 4. Describe redux-thunk, what does it allow us to do? How does it change our action-creators?
 It's middleware that allows action creators to return a function instead of an action. It can be used to delay an action which is useful when we are fetching data from an external API.
 
+comment to commit

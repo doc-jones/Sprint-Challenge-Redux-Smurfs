@@ -1,6 +1,6 @@
 .App {
   text-align: center;
-  color: white;
+  color: dodgerblue;
 }
 
 .smurf-header-container {
@@ -27,13 +27,13 @@
   color: white;
 }
 
-.smurf-images {
+.images {
   width: 40%;
   text-align: right;
   margin-left: 60%;
 }
 
-.smurf-images img {
+.images img {
   padding-right: 10px;
   cursor: pointer;
 }

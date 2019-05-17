@@ -8,9 +8,9 @@ function ListSmurfs(props) {
           <p>Name: {smurf.name}</p>
           <p>Age: {smurf.age}</p>
           <p>Height: {smurf.height}</p>
-          <p className="smurf-images">
+          <p className="images">
             <img
-              src="../bin.png"
+              src="basket.png"
               alt="trash"
               onClick={() => props.deleteSmurfs(smurf.id)}
             />
